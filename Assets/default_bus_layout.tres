@@ -1,0 +1,18 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://btkws6bsscvnm"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_s2hr6"]
+resource_name = "Reverb"
+room_size = 0.4
+damping = 0.44
+spread = 0.6
+dry = 0.55
+wet = 0.45
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_g1ytn"]
+resource_name = "Panner"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_s2hr6")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectPanner_g1ytn")
+bus/0/effect/1/enabled = false

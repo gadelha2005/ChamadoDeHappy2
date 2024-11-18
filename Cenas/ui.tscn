@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://fjuvf33cujn2"]
+
+[node name="UI" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "COINS = 0"

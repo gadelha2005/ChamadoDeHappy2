@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://p5r21itle76k"]
+
+[ext_resource type="Texture2D" uid="uid://0y83j5bktylc" path="res://Assets/PortaL2.png" id="2_hhyjt"]
+[ext_resource type="Texture2D" uid="uid://dte5tmrmfkmg3" path="res://Assets/PortaL1.png" id="2_yxqj4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_306eb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yxqj4")
+}],
+"loop": true,
+"name": &"doorRightClosed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hhyjt")
+}],
+"loop": true,
+"name": &"doorRightOpen",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpttw"]
+size = Vector2(10, 32)
+
+[node name="DoorRight" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="AnimatedSpriteDoorRight" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_306eb")
+animation = &"doorRightClosed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 0)
+shape = SubResource("RectangleShape2D_tpttw")

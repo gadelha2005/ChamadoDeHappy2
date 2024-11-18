@@ -1,0 +1,280 @@
+[gd_scene load_steps=20 format=3 uid="uid://do7f84nn11kpm"]
+
+[ext_resource type="PackedScene" uid="uid://bnpgrilieevim" path="res://Cenas/background.tscn" id="1_fs7ck"]
+[ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_xwmfb"]
+[ext_resource type="FontFile" uid="uid://dtiwsuclcsp2g" path="res://Assets/fonts/poco/Poco.ttf" id="2_kirrm"]
+[ext_resource type="Texture2D" uid="uid://dtkwpby6221qv" path="res://Assets/VoltarICon.png" id="2_yx3cp"]
+[ext_resource type="FontFile" uid="uid://bbmsch2oktnm0" path="res://Assets/fonts/montreal/Montreal-Regular.ttf" id="3_01vq4"]
+[ext_resource type="Texture2D" uid="uid://cygppdpymvppf" path="res://Assets/pixil-frame-1.png" id="3_abi68"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="4_7sjec"]
+[ext_resource type="Texture2D" uid="uid://q7s1q7souhhd" path="res://Assets/PortaF2.png" id="4_dmti6"]
+[ext_resource type="Texture2D" uid="uid://dptrv57gbbjy8" path="res://Assets/P1 M 1.png" id="5_jrvek"]
+[ext_resource type="Texture2D" uid="uid://bye8g7p1yt21q" path="res://Assets/106217_sound_icon.png" id="7_ffd4c"]
+[ext_resource type="Texture2D" uid="uid://j0t0l1crjrtk" path="res://Assets/106215_sound_off_icon.png" id="8_nm52m"]
+[ext_resource type="Script" path="res://Scripts/texture_button.gd" id="9_q2a0h"]
+
+[sub_resource type="Animation" id="Animation_rvh62"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_aqxo0"]
+resource_name = "Walk"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwwx3"]
+_data = {
+"RESET": SubResource("Animation_rvh62"),
+"Walk": SubResource("Animation_aqxo0")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbchq"]
+line_spacing = 0.0
+font = ExtResource("2_kirrm")
+font_size = 80
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xmrb"]
+font = ExtResource("3_01vq4")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hp0lr"]
+font = ExtResource("3_01vq4")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfopl"]
+font_size = 30
+
+[node name="Start_Screen" type="Node"]
+script = ExtResource("1_xwmfb")
+
+[node name="NodeBackground" type="Node" parent="."]
+
+[node name="Background" parent="NodeBackground" instance=ExtResource("1_fs7ck")]
+
+[node name="ColorRect4" type="ColorRect" parent="NodeBackground"]
+offset_left = 1065.0
+offset_top = 491.0
+offset_right = 1179.0
+offset_bottom = 515.0
+color = Color(0, 0, 0, 0.435294)
+
+[node name="Pixil-frame-1" type="Sprite2D" parent="NodeBackground"]
+texture_filter = 1
+position = Vector2(975, 237)
+scale = Vector2(4.35781, 4.35781)
+texture = ExtResource("3_abi68")
+
+[node name="ColorRect2" type="ColorRect" parent="NodeBackground"]
+offset_left = 907.0
+offset_top = 526.0
+offset_right = 1020.0
+offset_bottom = 530.0
+color = Color(0.768627, 0.501961, 0.317647, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="NodeBackground"]
+offset_left = 888.0
+offset_top = 540.0
+offset_right = 1023.0
+offset_bottom = 544.0
+color = Color(0.768627, 0.501961, 0.317647, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="NodeBackground"]
+offset_left = 874.0
+offset_top = 555.0
+offset_right = 1026.0
+offset_bottom = 559.0
+color = Color(0.768627, 0.501961, 0.317647, 1)
+
+[node name="PortaF1[1]" type="Sprite2D" parent="NodeBackground"]
+texture_filter = 1
+position = Vector2(975, 496)
+texture = ExtResource("4_dmti6")
+
+[node name="ColorRect" type="ColorRect" parent="NodeBackground"]
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1280.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 0.239216)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NodeBackground"]
+libraries = {
+"": SubResource("AnimationLibrary_pwwx3")
+}
+
+[node name="P1M1" type="Sprite2D" parent="NodeBackground"]
+texture_filter = 1
+position = Vector2(982, 499)
+texture = ExtResource("5_jrvek")
+
+[node name="Voltar dos Creditos" type="Button" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.052
+anchor_bottom = 0.1
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 38.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("2_yx3cp")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Main"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_7sjec")
+
+[node name="Label" type="Label" parent="Main/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 363.0
+offset_top = 18.0
+offset_right = 811.0
+offset_bottom = 210.0
+grow_horizontal = 2
+text = " Chamado de 
+ Happy"
+label_settings = SubResource("LabelSettings_hbchq")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Control"]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 306.0
+offset_right = 701.0
+offset_bottom = 488.0
+alignment = 1
+
+[node name="Jogar" type="Button" parent="Main/Control/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_01vq4")
+theme_override_font_sizes/font_size = 40
+text = "Jogar"
+flat = true
+
+[node name="Label" type="Label" parent="Main/Control/VBoxContainer/Jogar"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 5.0
+offset_right = 144.0
+offset_bottom = 55.0
+text = "Jogar"
+label_settings = SubResource("LabelSettings_3xmrb")
+horizontal_alignment = 1
+
+[node name="Opções" type="Button" parent="Main/Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_01vq4")
+theme_override_font_sizes/font_size = 40
+text = "Opções"
+flat = true
+
+[node name="Label" type="Label" parent="Main/Control/VBoxContainer/Opções"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 165.0
+offset_bottom = 56.0
+text = "Opções"
+label_settings = SubResource("LabelSettings_3xmrb")
+
+[node name="Creditos Buttons" type="Button" parent="Main/Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_01vq4")
+theme_override_font_sizes/font_size = 40
+text = "Créditos"
+flat = true
+
+[node name="Label" type="Label" parent="Main/Control/VBoxContainer/Creditos Buttons"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 173.0
+offset_bottom = 56.0
+text = "Créditos
+"
+label_settings = SubResource("LabelSettings_3xmrb")
+
+[node name="Creditos" type="Node2D" parent="."]
+visible = false
+
+[node name="Creditos Label" type="Label" parent="Creditos"]
+offset_left = 384.0
+offset_top = 172.0
+offset_right = 895.0
+offset_bottom = 484.0
+size_flags_horizontal = 4
+text = "Desenvolvedores:
+Mateus Coimbra Braga
+Tiago Rodrigues Albuquerque
+Pedro Gadelha Paula
+
+Soundtrack Original:
+Mateus Coimbra Braga
+
+Arte Original:
+Guilherme Petiz"
+label_settings = SubResource("LabelSettings_hp0lr")
+horizontal_alignment = 1
+
+[node name="Options" type="Node2D" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+offset_left = 516.0
+offset_top = 246.0
+offset_right = 734.0
+offset_bottom = 288.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mute Music "
+label_settings = SubResource("LabelSettings_vfopl")
+
+[node name="Button" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+flat = true
+
+[node name="TextureButton" type="TextureButton" parent="Options"]
+offset_left = 712.0
+offset_top = 243.0
+offset_right = 1224.0
+offset_bottom = 755.0
+scale = Vector2(0.1, 0.1)
+toggle_mode = true
+texture_normal = ExtResource("7_ffd4c")
+texture_pressed = ExtResource("8_nm52m")
+script = ExtResource("9_q2a0h")
+
+[connection signal="pressed" from="Voltar dos Creditos" to="." method="_on_voltar_dos_creditos_pressed"]
+[connection signal="pressed" from="Main/Control/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Main/Control/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="Main/Control/VBoxContainer/Creditos Buttons" to="." method="_on_creditos_buttons_pressed"]
+[connection signal="pressed" from="Options/TextureButton" to="Options/TextureButton" method="_on_pressed"]

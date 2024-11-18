@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmtricfxhg1ff"]
+
+[ext_resource type="Script" path="res://Scripts/mainControl.gd" id="1_rouvl"]
+[ext_resource type="AudioStream" uid="uid://cuvw6t77ikr46" path="res://Assets/Project_CDH_EDP_final.wav" id="2_gr5xh"]
+
+[node name="mainControl" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rouvl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gr5xh")
+volume_db = -18.889
+autoplay = true

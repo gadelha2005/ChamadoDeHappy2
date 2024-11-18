@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://80k1a22assub"]
+
+[ext_resource type="Texture2D" uid="uid://d3wxf7onx0l71" path="res://Assets/Mochila.png" id="1_j5a41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ekv"]
+size = Vector2(16, 16)
+
+[node name="Back_pack" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_j5a41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_v5ekv")

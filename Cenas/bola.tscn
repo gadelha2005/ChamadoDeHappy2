@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8oa7y21kuuln"]
+
+[ext_resource type="Texture2D" uid="uid://w73bbybj1afo" path="res://Assets/Bola.png" id="1_127or"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b37rj"]
+radius = 8.0
+
+[node name="Bola" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(34, -2.38419e-07)
+scale = Vector2(0.625, 0.5)
+texture = ExtResource("1_127or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 0)
+shape = SubResource("CircleShape2D_b37rj")
